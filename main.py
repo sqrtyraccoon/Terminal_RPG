@@ -1,7 +1,6 @@
 import os
 
-
-print('Haiii !')
+os.system('clear')
 
 
 #Boss Class
@@ -64,12 +63,43 @@ Archer = Archer('', 0, 0, '', 6)
 
 
 
+# Ask for username
+print(f"Haii what's your username?")
+username = input('> ')
 
+# Command Strings
+def cmd_help():
+    print("""
+NOTE: Type "help --CommandName" to get further explanation about a command.
+      Type "--help_all" to get explanation for any command at once.
+X_____Available Commands_____X
+--help || --help_all || --clear || --exit
+    """)
+    
+def help_all():
+    print("""
+--help:
+    Downloads additional RAM on your PC.
+--clear:
+    Allows you to clear the terminal.
+--exit:
+    Allows you to quit the game.
+    """)
 
 while True:
-    cmd = input('> ')
-    if cmd == 'exit':
-        print('Bye :<')
+    cmd = input(f'{username} >> ')
+    if cmd == '--exit':
+        print(f'Bye {username} :<')
         break
-    if cmd == 'clear':
+    if cmd == '--clear':
         os.system('clear')
+    if cmd == '--help':
+        cmd_help()
+    if cmd == 'help --exit':
+        print('Allows you to quit the game.')
+    if cmd == 'help --clear':
+        print('Allows you to clear the terminal.')
+    if cmd == 'help --help':
+        print('Are you serious? :|')
+    if cmd == '--help_all':
+        help_all()
